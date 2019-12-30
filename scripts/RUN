@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Run PhpStan"
+php vendor/bin/phpstan analyze --level=max src/
+
+echo "Run Rector"
+php vendor/bin/rector process -v --ansi --autoload-file vendor/autoload.php --config rector.yaml src --dry-run

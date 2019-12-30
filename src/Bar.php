@@ -1,19 +1,14 @@
 <?php
 
-namespace RectorPlayground;
+namespace App;
 
 final class Bar
 {
     /**
-     * @var Foo<Baz>
+     * @return iterable<class-string>
      */
-    private $foo;
-
-    /**
-     * @param Foo<Baz> $foo
-     */
-    public function __construct(Foo $foo)
+    public function someMethod(): iterable
     {
-        $this->foo = $foo;
+        yield self::class;
     }
 }

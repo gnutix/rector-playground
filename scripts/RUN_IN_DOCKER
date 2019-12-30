@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Run PhpStan"
+php vendor/bin/phpstan analyze --level=max src/
+
+echo "Run through rector.phar inside Docker"
+docker pull -q php:7.4-alpine
+docker build -q -t rector_playground scripts
+docker run --rm -v $(pwd):/app rector_playground process -v --ansi --autoload-file /app/vendor/autoload.php --config /app/rector.yaml /app/src --dry-run
