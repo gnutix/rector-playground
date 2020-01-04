@@ -5,14 +5,11 @@ php:
     - 7.3
     - 7.4
 
-before_install:
-    - composer self-update --no-interaction
-
 install:
     - composer install --no-interaction --prefer-source
 
 script:
-    - vendor/bin/rector process -v --ansi --autoload-file vendor/autoload.php --config rector.yaml src --dry-run
+    - vendor/bin/rector process src --dry-run
 
 after_script:
-    - vendor/bin/phpstan analyze --level=max src/
+    - vendor/bin/phpstan analyze --level max src
