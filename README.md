@@ -8,4 +8,11 @@
 2. Execute `./scripts/SETUP` (to install the vendors)
 3. Execute `./scripts/RUN` (to execute the playground checks)
 
+OR:
+
+```bash
+composer update
+vendor/bin/rector process src --dry-run
+```
+
 You can also execute Rector through Docker using `./scripts/RUN_IN_DOCKER`.
