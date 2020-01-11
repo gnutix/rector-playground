@@ -1,3 +1,2 @@
-parameters:
-    sets:
-        - 'type-declaration'
+services:
+    Rector\Php71\Rector\FuncCall\CountOnNullRector: ~
